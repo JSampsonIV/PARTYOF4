@@ -3,7 +3,7 @@ from data.employee_db import create_employee, get_employee
 from reviews.performance_review import performance_review_chat
 from reviews.self_assessment import self_assessment_chat
 from reviews.peer_review import peer_review_chat
-from fake_ai_api import generate_employee_profile_summary, get_job_match_score  # Import AI summary function
+from llm_api import generate_employee_profile_summary, get_job_match_score  # Import AI summary function
 from data.job_listing import get_all_jobs
 
 EMPLOYEE_ID = "12345"
@@ -55,7 +55,7 @@ def page1(employee_id):
                     position: relative;
                     text-align: center;
                     color: red; /* Set title color to red */
-                    height: 400px; /* Set the height of the banner in pixels */
+                    height: 300px; /* Set the height of the banner in pixels */
                     overflow: hidden;
                     bottom-padding: 20px;
                 }
@@ -188,7 +188,7 @@ def page1(employee_id):
             st.title("🧰 Jobs")
 
             # Text editor for entering jobs
-            job_input = st.text_area("Enter Job Description", height=200)
+            job_input = st.text_area("Enter Job Description", height=500)
 
             # Button to display job input (simulating adding job)
             if st.button("Submit Job(s)"):
@@ -343,8 +343,6 @@ def page2(employee_id):
     else:
         st.info("Please complete all 3 reviews using the sidebar.")
 
-
-
     
 def main():
     st.set_page_config(layout="wide")
@@ -378,5 +376,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
